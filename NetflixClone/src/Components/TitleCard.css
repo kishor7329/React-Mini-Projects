@@ -1,0 +1,485 @@
+/* Main section */
+.title-card {
+    padding: 40px 60px;
+    background: #000;
+
+}
+
+/* Heading */
+.title-card h1 {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 600;
+
+    margin-bottom: 10px;
+}
+
+.title-card>div {
+    margin-bottom: 50px;
+}
+
+/* Carousel wrapper */
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Scroll container */
+.card-container {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar */
+.card-container::-webkit-scrollbar {
+    display: none;
+    scrollbar-width: none;
+}
+
+/* Individual card */
+.card {
+    min-width: 180px;
+    height: 260px;
+    background: #2b2b2b;
+    /* placeholder color */
+    border-radius: 8px;
+    flex-shrink: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: scale(1.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Navigation buttons */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 90px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 5;
+    transition: background 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    color: #e50914;
+
+}
+
+/* Left & Right button positions */
+.nav-btn.left {
+    background: black;
+    left: -10px;
+}
+
+.nav-btn.right {
+    right: -10px;
+    background: black
+}
+
+.poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.heart-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Show heart on hover */
+.card:hover .heart-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.heart-icon {
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect on button */
+.heart-btn:hover {
+    transform: scale(1.1);
+}
+
+.heart-btn:hover .heart-icon {
+    transform: scale(1.3);
+}
+
+/* Tap/active effect with animation */
+.heart-btn:active {
+    transform: scale(0.95);
+    background: red;
+}
+
+.heart-btn:active .heart-icon {
+    animation: heartPop 0.5s ease;
+}
+
+/* When favorited - add this class with JavaScript */
+.heart-btn.favorited .heart-icon {
+    animation: heartPop 0.5s ease;
+}
+
+/* Heart pop animation */
+@keyframes heartPop {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.5);
+    }
+
+    50% {
+        transform: scale(1.3) rotate(10deg);
+    }
+
+    75% {
+        transform: scale(1.4) rotate(-10deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Optional: Change heart color when favorited */
+.heart-btn.favorited .heart-icon path {
+    fill: #ff0000;
+    stroke: #cc0000;
+}
+
+.heart-btn:not(.favorited) .heart-icon path {
+    fill: transparent;
+    stroke: #ffffff;
+    stroke-width: 2;
+}
+
+.toast-msg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, rgba(229, 9, 20, 0.95) 0%, rgba(178, 7, 16, 0.95) 100%);
+    color: white;
+    padding: 20px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 16px;
+    animation: centerPopUp 3s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+    z-index: 9999;
+    box-shadow:
+        0 15px 35px rgba(229, 9, 20, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.15),
+        inset 0 0 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    min-width: 90px;
+    max-width: 40vw;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* Heart icon animation */
+.toast-msg::before {
+    content: '❤️';
+    display: block;
+    font-size: 28px;
+    margin-bottom: 12px;
+    animation: heartPulse 1.5s ease infinite;
+}
+
+@keyframes centerPopUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    15% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    20%,
+    80% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    90% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+        visibility: hidden;
+    }
+}
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.3);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.2);
+    }
+}
+
+/* Success variant - Green */
+.toast-msg.success {
+    background: linear-gradient(135deg, rgba(0, 184, 148, 0.95) 0%, rgba(0, 160, 133, 0.95) 100%);
+    box-shadow:
+        0 15px 35px rgba(0, 184, 148, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.toast-msg.success::before {
+    content: '✅';
+    animation: bounce 1.5s ease infinite;
+}
+
+/* Error/Remove variant - Orange */
+.toast-msg.error {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.95) 0%, rgba(229, 83, 0, 0.95) 100%);
+    box-shadow:
+        0 15px 35px rgba(255, 107, 53, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.toast-msg.error::before {
+    content: '🗑️';
+    animation: shake 1.5s ease infinite;
+}
+
+/* Info variant - Blue */
+.toast-msg.info {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.95) 0%, rgba(41, 128, 185, 0.95) 100%);
+    box-shadow:
+        0 15px 35px rgba(52, 152, 219, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.toast-msg.info::before {
+    content: '💡';
+    animation: float 1.5s ease infinite;
+}
+
+/* Additional animations for different icons */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-10deg);
+    }
+
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-5px) scale(1.1);
+    }
+}
+
+/* Optional: Add subtle glow effect */
+.toast-msg::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(229, 9, 20, 0.2) 0%, transparent 70%);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    animation: glow 3s ease forwards;
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    10%,
+    80% {
+        opacity: 1;
+    }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    .toast-msg {
+        background: linear-gradient(135deg, rgba(255, 10, 22, 0.95) 0%, rgba(229, 9, 20, 0.95) 100%);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .toast-msg {
+        padding: 18px 30px;
+        font-size: 15px;
+        min-width: 200px;
+        max-width: 90vw;
+    }
+
+    .toast-msg::before {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .toast-msg {
+        padding: 15px 25px;
+        font-size: 14px;
+        min-width: 180px;
+    }
+
+    .toast-msg::before {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    @keyframes centerPopUp {
+        0% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.3);
+        }
+
+        10% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        15% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        20%,
+        80% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        90% {
+            opacity: 0.8;
+            transform: translate(-50%, -50%) scale(0.95);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.85);
+            visibility: hidden;
+        }
+    }
+}
+
+/* Optional: Add progress bar at bottom */
+.toast-msg.with-progress::before {
+    position: relative;
+}
+
+.toast-msg.with-progress::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 15%;
+    right: 15%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 2px;
+    animation: progressBar 3s linear forwards;
+    opacity: 1;
+}
+
+@keyframes progressBar {
+    0% {
+        width: 70%;
+        opacity: 1;
+    }
+
+    100% {
+        width: 0%;
+        opacity: 0;
+    }
+}
+
+/* Optional: Add progress bar */

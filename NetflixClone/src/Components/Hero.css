@@ -1,0 +1,186 @@
+.hero {
+    margin-top: 70px;
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    /* Dark background */
+}
+
+/* ===== HERO CHILD ===== */
+.heroChild {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== HERO POSTER ===== */
+.heroPoster {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+
+/* FULL POSTER IMAGE - SHOW COMPLETE WITHOUT CROPPING */
+.heroPoster img {
+    max-width: 100%;
+    max-height: calc(100vh - 70px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    /* Changed from cover to contain */
+    filter: brightness(1.20);
+    display: block;
+}
+
+/* ===== OVERLAY GRADIENT ===== */
+
+
+/* ===== ICONS SECTION ===== */
+.icons {
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+    display: flex;
+    gap: 25px;
+    z-index: 2;
+}
+
+/* ICON STYLE */
+.icons svg {
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ICON HOVER */
+.icons svg:hover {
+    transform: scale(1.2);
+    opacity: 0.85;
+}
+
+/* ===== DESCRIPTION (HIDDEN DEFAULT) ===== */
+.heroPoster p {
+    position: absolute;
+    bottom: 130px;
+    left: 60px;
+    max-width: 500px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 18px 22px;
+    border-left: 4px solid #e50914;
+    border-radius: 6px;
+    opacity: 1;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    z-index: 2;
+    transform: translateY(0);
+
+}
+
+/* ===== SHOW DESCRIPTION ON INFO ICON HOVER ===== */
+
+
+/* ===== LOADER CENTER ===== */
+.heroChild img[alt="Loading"] {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ===== ERROR TEXT ===== */
+.heroChild p {
+    color: red;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* ===== RESPONSIVE - For smaller screens ===== */
+@media (max-width: 768px) {
+    .icons {
+        bottom: 30px;
+        left: 30px;
+        gap: 10px;
+    }
+
+    .heroPoster p {
+        bottom: 90px;
+        left: 30px;
+        max-width: calc(100% - 60px);
+        font-size: 14px;
+        padding: 14px 18px;
+    }
+}
+
+/* ===== ARROW ICONS ===== */
+/* Arrow wrapper */
+.Arrow {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    z-index: 5;
+    pointer-events: none;
+    /* so poster interactions still work */
+}
+
+/* Individual arrows */
+.Arrow svg {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    pointer-events: auto;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+/* Arrow hover effect */
+.Arrow svg:hover {
+    transform: scale(1.45);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Arrow path color */
+.Arrow svg path {
+    stroke: #ffffff;
+}
+
+/* Make sure poster is relative */
+.heroPoster {
+    position: relative;
+}
+
+/* Circle wrapper */
+.Circle {
+    position: absolute;
+    bottom: -255px;
+    /* space below poster */
+    left: 48%;
+}
+
+/* Optional: smooth hover effect on dots */
+
+
+/* Hover effect */
+.Circle svg circle:hover {
+    transform: scale(1.2);
+    fill: #e50914;
+    /* Netflix red highlight */
+}

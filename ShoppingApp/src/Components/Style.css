@@ -1,0 +1,208 @@
+.shop {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.shop .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.shop .container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.shop h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.shop h1:hover {
+    color: #007bff;
+}
+
+.shop h2 {
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.shop h2:hover {
+    color: #007bff;
+}
+
+.shop p {
+    transition: color 0.3s ease;
+}
+
+.shop p:hover {
+    color: #555;
+}
+
+.shop span {
+    transition: color 0.3s ease;
+}
+
+.shop span:hover {
+    color: #0056b3;
+}
+
+
+.shop h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.shop .shop {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.shop .item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.shop .item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.shop .item h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.shop .item p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+.shop .item span {
+    color: #007bff;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.shop .item button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.shop .item button:hover {
+    background-color: #0056b3;
+}
+
+.shop .item .block {
+    border: 2px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.shop .item .block:hover {
+    background-color: #f0f0f0;
+    border-color: #999;
+}
+
+
+
+.cart_section {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+}
+
+.cart_section:hover {
+    transform: translateY(-5px);
+}
+
+.cart_section h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.cart_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart_item:last-child {
+    border-bottom: none;
+}
+
+.cart_item span {
+    font-size: 1.3em;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.cart_item span:hover {
+    color: #000;
+    font-weight: bold;
+}
+
+.cart_item span:nth-child(2) {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.cart_item span:nth-child(3) {
+    color: #777;
+}
+
+.cart_item button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cart_item button:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
+
+.cart_section p {
+    text-align: center;
+    font-size: 1.4em;
+    color: #777;
+}

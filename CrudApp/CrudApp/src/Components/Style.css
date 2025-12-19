@@ -1,0 +1,340 @@
+.container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add_farm {
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    width: 400px;
+    /* Adjust as needed */
+    margin: 20px auto;
+    /* Center horizontally */
+    transition: all 0.3s ease;
+}
+
+.add_farm:hover {
+
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+    outline: 2px solid #007bff;
+
+}
+
+.add_farm button {
+    background-color: #007bff;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add_farm button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+    outline: 2px solid #007bff;
+}
+
+.add_farm h1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #333;
+}
+
+.add_farm input[type="text"],
+.add_farm input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.add_farm input[type="text"]:hover,
+.add_farm input[type="email"]:hover {
+    border-color: #007bff;
+    box-shadow: 0 0 7px rgba(0, 123, 255, 0.5);
+}
+
+.view_show {
+    width: 30%;
+    /* take full width so it aligns left */
+    display: flex;
+    /* use flexbox */
+    justify-content: flex-start;
+    /* force left alignment */
+    margin-top: 10px;
+
+}
+
+.view_show button {
+    background-color: #007bff;
+    color: white;
+    padding: 6px 10px;
+    /* more compact */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    /* slightly smaller */
+    transition: background-color 0.3s ease;
+}
+
+/* Remove hover animation if you want */
+.view_show button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+.compact-image {
+    width: 20px;
+    /* Adjust size as needed */
+    height: 20px;
+    border-radius: 50%;
+    /* Make it circular */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    /* Indicate it's clickable */
+    display: block;
+    margin: 0 auto;
+}
+
+.compact-image:hover {
+    transform: scale(1.1);
+    /* Slightly enlarge on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Add a glow effect */
+}
+
+.img_src {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_src img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+
+    /* Start small */
+    transform: scale(0.2);
+    opacity: 0;
+
+    /* Animate when it appears */
+    animation: growIn 0.6s ease-out forwards;
+
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.9);
+    border: 2px solid #007bff;
+}
+
+/* Keyframes for automatic animation */
+@keyframes growIn {
+    from {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Style for View_Data component */
+.View_data {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #333;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.View_data:hover {
+    border-color: #0056b3;
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.View_data h1 {
+    color: #007bff;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.View_data table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.View_data th,
+.View_data td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.View_data th {
+    background-color: #f2f2f2;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.View_data tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.View_data td {
+    font-size: 1em;
+}
+
+.View_data td button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9em;
+}
+
+.View_data td button:hover {
+    background-color: #218838;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for Update_form component */
+
+.update-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.65);
+    /* richer dark */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+}
+
+.Upadte_form {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff, #f0f4ff);
+    padding: 30px;
+    border-radius: 12px;
+
+    width: 400px;
+    text-align: center;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(0, 123, 255, 0.5);
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.Upadte_form:hover {
+    transform: scale(1.04);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(0, 123, 255, 0.8);
+}
+
+.Upadte_form h1 {
+    font-size: 2.4em;
+    color: #0056ff;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(0, 86, 255, 0.4);
+}
+
+.Upadte_form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+    border: 2px solid #cfd9ff;
+
+    font-size: 1.1em;
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+.Upadte_form input:focus {
+    border-color: #0056ff;
+    box-shadow: 0 0 12px rgba(0, 86, 255, 0.6);
+}
+
+.Upadte_form button {
+    width: 100%;
+    padding: 16px;
+
+    background: linear-gradient(135deg, #007bff, #0056ff);
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.Upadte_form button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 20px rgba(0, 86, 255, 0.9);
+}
+
+.Upadte_form img {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    width: 22px;
+    /* adjust if needed */
+    height: 22px;
+
+    cursor: pointer;
+    z-index: 10;
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.Upadte_form img:hover {
+    transform: rotate(90deg) scale(1.2);
+    opacity: 0.8;
+}
