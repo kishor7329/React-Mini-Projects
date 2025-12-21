@@ -2,6 +2,7 @@ import React from 'react'
 import './RoutingPage.css'
 import { Link,useLocation,useParams } from 'react-router-dom'
 import {useEffect,useState} from 'react'
+import Player from './Player'
 const RoutingPage = () => {
   const location=useLocation();
  const {lang}=useParams();
@@ -15,7 +16,7 @@ const RoutingPage = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  
+  const [showplayed,setshowplayed]=useState(null)
   let searchQuery  = pathToQueryMap[location.pathname] ;
   if(lang){
     const langMap={
@@ -64,6 +65,7 @@ const RoutingPage = () => {
 
   return (
     <div className="routingpage">
+      
       <div className="heading-section">
         <Link to="/">
           <h1 className="back-home">
@@ -105,13 +107,28 @@ const RoutingPage = () => {
               alt={i.Title}
               className="movie-poster"
             />
+            <button className="played_icon" type="button"  onClick={() => {
+                if (!i?.Title) return;
+                setshowplayed(null);
+                setTimeout(() => setshowplayed(i.Title), 0);
+              }}>
+              <svg className="picon" width="300" height="300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
+                
+
+                >
+
+                <circle cx="100" cy="100" r="90" fill="none" stroke="#333" strokewidth="8"/>
+
+
+                <polygon points="75,60 75,140 145,100" fill="#333" />
+              </svg></button>
           </div>
         ))}
         { !hasMore&&!loading && !error && (
           <p className="status-text">No movies to display.</p>
         )}
 
-       
+          <Player title={showplayed}/>
         
       </div>
       { hasMore&& (<div className="load-more-wrapper">

@@ -1,3 +1,4 @@
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
@@ -175,7 +176,7 @@
 }
 
 .search-input:focus::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgb(207, 201, 201, 0.4);
 }
 
 .search-btn {
@@ -205,7 +206,7 @@
 
 .search-btn:hover svg,
 .search-btn:hover img {
-    filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(229, 9, 20, 0.8));
+    filter: brightness(0) invert(1) drop-shadow(0 0 5px rgb(201, 44, 44, 0.8));
 }
 
 /* CHILDREN TEXT */
@@ -421,5 +422,4 @@
     box-shadow: 0 5px 30px rgba(229, 9, 20, 0.3);
     border-bottom: 1px solid rgba(229, 9, 20, 0.4);
 }
-
 /* ===== RESPONSIVE DESIGN ===== */

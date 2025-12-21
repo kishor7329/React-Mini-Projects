@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Search.css";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import Player from "./Player"
 function Search() {
   const [movies, setMovies] = useState([]);
   const [visibleCount, setVisibleCount] = useState(10);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showplayed, setShowplayed]=useState(null)
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -54,7 +55,9 @@ function Search() {
   const visibleMovies = movies.slice(0, visibleCount);
 
   return (
+    
     <div className="search-container">
+       {showplayed && <Player title={showplayed}/>}
       {/* Header with Back Button and Search Info */}
       <div className="search-header">
         <div className="header-content">
@@ -99,8 +102,15 @@ function Search() {
                   <p className="movie-title">{m.Title}</p>
                   <span className="movie-type">{m.Type}</span>
                 </div>
-              </div>
+                <button className="p1"  onClick={()=>setShowplayed(m.Title)}>
+                  <svg className="p2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="30,20 30,80 75,50" fill="white"/>
+                  </svg>
+                </button>
+               </div>
             ))}
+            
+
           </div>
 
 

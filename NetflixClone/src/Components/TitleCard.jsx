@@ -1,7 +1,8 @@
 import "./TitleCard.css";
 import React, { useEffect, useState } from "react";
+import Player from "./Player"
 const TitleCard = ({favc,setfavc}) => {
-  
+
   const [batman, setBatman] = useState([]);
   const [superman, setSuperman] = useState([]);
   const [spiderman, setSpiderman] = useState([]);
@@ -9,7 +10,7 @@ const TitleCard = ({favc,setfavc}) => {
   const [thor, setThor] = useState([]);
   const [toastMovie, setToastMovie] = useState(null);
   const [toastText, setToastText] = useState("");
-
+  const [showplayed,setshowplayed]=useState(null)
 
   const fetchMovies = async (query, setter) => {
     const res = await fetch(
@@ -28,7 +29,7 @@ const TitleCard = ({favc,setfavc}) => {
     fetchMovies("thriller", setThor);
   }, []);
   const buildCards = (list,setfavc) => {
-    
+
     const cards = [];
     for (let i = 0; i < 10; i++) {
       const movie = list[i];
@@ -70,6 +71,12 @@ const TitleCard = ({favc,setfavc}) => {
                   />
                 </svg>
               </button>
+              <button className="p1"  onClick={()=>setshowplayed(movie.Title)}>
+                <svg className="p2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="30,20 30,80 75,50" fill="white"/>
+                </svg>
+              </button>
+             
             </>
           ) : (
             <div className="empty-card">No Poster</div>
@@ -97,11 +104,11 @@ const TitleCard = ({favc,setfavc}) => {
     setTimeout(() => { setToastMovie(null); setToastText(""); }, 1000);
   };
 
-  
+
   return (
     <div className="title-card">
       <h1>Most Trending</h1>
-
+      {showplayed&&<Player title={showplayed}/>}
       <div className="carousel-wrapper">
         <button className="nav-btn left">‹</button>
 

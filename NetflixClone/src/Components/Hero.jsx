@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./Hero.css";
+import Player from './Player'
 const Hero = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,6 +13,8 @@ const Hero = () => {
   const [moviesList, setMoviesList] = useState([]);
   const movieTypes = ["batman", "superman", "spiderman", "iron man"];
   const [movieTypeIndex, setMovieTypeIndex] = useState(0);
+  
+  const [selectedTitle, setSelectedTitle] = useState(null);
 
 
   useEffect(() => {
@@ -61,6 +64,7 @@ const Hero = () => {
 
   return (
     <div className="heroChild">
+       {selectedTitle && <Player title={selectedTitle} />}
       {loading && (
         <img
           src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif"
@@ -75,9 +79,14 @@ const Hero = () => {
           {showDescription && <p className="hero-desc">{movies.Plot}</p>}
 
           <div className="icons">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="lightgrey">
+            
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="red"
+              style={{ cursor: "pointer" }}
+              onClick={() => setSelectedTitle(movies.Title)}
+              >
               <circle cx="12" cy="12" r="10" />
-              <polygon points="10 8 16 12 10 16 10 8" fill="#1a1a1a" />
+              <polygon points="10 8 16 12 10 16 10 8" fill="#1a1a1a"/>
+              
             </svg>
 
             <svg
@@ -145,6 +154,10 @@ const Hero = () => {
           </div>
         </div>
       )}
+       
+      
+      
+
     </div>
   );
 };
